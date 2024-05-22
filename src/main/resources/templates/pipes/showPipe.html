@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+<p th:text="${pipe.getId()}">VALUE</p>
+<p th:text="${pipe.getDiameter()}">VALUE</p>
+<p th:text="${pipe.getLength()}">VALUE</p>
+<p th:text="${pipe.getTemperatureflow()}">VALUE</p>
+
+<a th:href="@{/pipes/{id}/edit(id=${pipe.getId()})}">Edit</a>
+
+<form th:method="DELETE" th:action="@{/pipe/{id}(id=${pipe.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html> 
+
