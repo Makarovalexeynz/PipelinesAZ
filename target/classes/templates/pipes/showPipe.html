@@ -12,7 +12,7 @@
 
 <a th:href="@{/pipes/{id}/edit(id=${pipe.getId()})}">Edit</a>
 
-<form th:method="DELETE" th:action="@{/pipe/{id}(id=${pipe.getId()})}">
+<form th:method="DELETE" th:action="@{/pipes/{id}(id=${pipe.getId()})}">
     <input type="submit" value="Delete"/>
 </form>
 </body>

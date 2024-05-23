@@ -12,6 +12,7 @@ import ru.makarov.pipelinesAZ.repositories.PipesRepository;
 
 
 
+
 @Service
 @Transactional(readOnly = true)
 public class PipesService {
@@ -34,6 +35,17 @@ public class PipesService {
 	@Transactional
     public void save(Pipe pipe) {
         pipesRepository.save(pipe);
+    }
+	
+	@Transactional
+    public void update(int id, Pipe updatedPipe) {
+        updatedPipe.setId(id);
+        pipesRepository.save(updatedPipe);
+    }
+	
+	@Transactional
+    public void delete(int id) {
+        pipesRepository.deleteById(id);
     }
 
 }

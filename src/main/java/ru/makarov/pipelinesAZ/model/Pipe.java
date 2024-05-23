@@ -64,7 +64,7 @@ public class Pipe {
 		return temperatureflow;
 	}
 
-	public void setTemperatureFlow(int temperatureflow) {
+	public void setTemperatureflow(int temperatureflow) {
 		this.temperatureflow = temperatureflow;
 	}
 	
