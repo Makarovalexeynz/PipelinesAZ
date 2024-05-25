@@ -17,23 +17,28 @@ public class Pipe {
 	private int id;
 	
 	@Column(name = "diameter")
-	private int diameter;
+	private float diameter;
 	
 	@Column(name = "length")
 	private float length;
 	
 	@Column(name = "temperatureflow")
 	private int temperatureflow;
+	
 			
+
 	public Pipe() {
 	
 	}
 
-	public Pipe(int id, int diameter, float length, int temperatureflow) {
+	
+	public Pipe(int id, float diameter, float length, int temperatureflow) {
 		this.id = id;
 		this.diameter = diameter;
 		this.length = length;
 		this.temperatureflow = temperatureflow;
+		
+		
 	}
 
 	public int getId() {
@@ -44,11 +49,11 @@ public class Pipe {
 		this.id = id;
 	}
 
-	public int getDiameter() {
+	public float getDiameter() {
 		return diameter;
 	}
 
-	public void setDiameter(int diameter) {
+	public void setDiameter(float diameter) {
 		this.diameter = diameter;
 	}
 
@@ -68,7 +73,15 @@ public class Pipe {
 		this.temperatureflow = temperatureflow;
 	}
 	
+	public float getSurfacearea() {
+		return (float)3.14 * getDiameter();
+	}
 	
+	public String useCoat(){
+		if (getTemperatureflow() < 80) {
+			return "anticorrosionCoating";
+		} else return "termoCoating";
+	}
 	
 	
 }

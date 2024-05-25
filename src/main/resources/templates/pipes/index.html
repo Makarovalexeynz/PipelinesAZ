@@ -7,7 +7,7 @@
 <body>
 	 <div th:each="pipe : ${pipes}">
    	 <a th:href="@{/pipes/{id}(id=${pipe.getId()})}" 
-   	 th:text="${pipe.getId()+ ', '+ pipe.getDiameter()}">user</a>
+   	 th:text="${' pipe: diameter ='+ pipe.getDiameter()+', length = '+pipe.getLength()}">user</a>
 	</div> 
 	
 <br/>

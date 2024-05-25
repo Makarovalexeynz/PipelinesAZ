@@ -5,10 +5,24 @@
     <title>Show</title>
 </head>
 <body>
+<p>This is a ID: </p> 
 <p th:text="${pipe.getId()}">VALUE</p>
+
+<p>This is a Diameter: </p> 
 <p th:text="${pipe.getDiameter()}">VALUE</p>
+
+<p>This is a length:</p> 
 <p th:text="${pipe.getLength()}">VALUE</p>
+
+<p>This is a flow temperature:</p>  
 <p th:text="${pipe.getTemperatureflow()}">VALUE</p>
+
+
+<p>This is a surface area:</p> 
+<p th:text="${pipe.getSurfacearea()}">VALUE</p>
+
+<p>Should use:</p> 
+<p th:text="${pipe.useCoat()}">VALUE</p>
 
 <a th:href="@{/pipes/{id}/edit(id=${pipe.getId()})}">Edit</a>
 

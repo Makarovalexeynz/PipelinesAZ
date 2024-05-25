@@ -17,9 +17,6 @@ import ru.makarov.pipelinesAZ.model.Pipe;
 import ru.makarov.pipelinesAZ.services.PipesService;
 
 
-
-
-
 @Controller
 @RequestMapping("/pipes")
 public class PipeController {
