@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New pipeline</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/pipelines}" th:object="${pipeline}">
+    <label for="pipelinecode">Enter Code: </label>
+    <input type="text" th:field="*{pipelinecode}" id="pipelinecode"/>
+   
+   <br/>
+    <label for="pipelinename">Enter name: </label>
+    <input type="text" th:field="*{pipelinename}" id="pipelinename"/>
+      
+   
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+</body>
+</html> 

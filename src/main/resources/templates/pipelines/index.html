@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>test</title>
+<title>All pipelines</title>
 </head>
 <body>
-	test
+	 <div th:each="pipeline : ${pipelines}">
+   	 <a th:href="@{/pipelines/{id}(id=${pipeline.getId()})}" 
+   	 th:text="${' pipeline: code ='+ pipeline.getPipelinecode()+', name = '+pipeline.getPipelinename()}">user</a>
+	</div> 
+	
+<br/>
+<hr/>
+
+<a href = "pipelines/new">Add new pipeline</a>	
+
 </body>
-</html>
+</html> 

@@ -26,9 +26,26 @@ public class Pipeline {
 	public Pipeline() {
 	}
 
-	public Pipeline(String pipelinename, String pipelinecode) {
+	
+	
+
+
+
+
+	public Pipeline(int id,String pipelinename, String pipelinecode) {
+		this.id = id;
 		this.pipelinename = pipelinename;
 		this.pipelinecode = pipelinecode;
+	}
+	
+	
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getPipelinename() {

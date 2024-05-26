@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Update pipeline</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/pipelines/{id}(id=${pipeline.getId()})}" th:object="${pipeline}">
+    <label for="pipelinecode">Enter code: </label>
+    <input type="text" th:field="*{pipelinecode}" id="pipelinecode"/>
+   
+   <br/>
+    <label for="pipelinename">Enter length: </label>
+    <input type="text"  th:field="*{pipelinename}" id="pipelinename"/>
+       
+    <br/>
+    <input type="submit" value="Update!"/>
+</form>
+</body>
+</html>
