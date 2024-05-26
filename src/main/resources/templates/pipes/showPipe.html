@@ -24,6 +24,10 @@
 <p>Should use:</p> 
 <p th:text="${pipe.useCoat()}">VALUE</p>
 
+<p>Owner:</p> 
+<p th:text="${pipe.getOwner}">VALUE</p>
+
+
 <a th:href="@{/pipes/{id}/edit(id=${pipe.getId()})}">Edit</a>
 
 <form th:method="DELETE" th:action="@{/pipes/{id}(id=${pipe.getId()})}">

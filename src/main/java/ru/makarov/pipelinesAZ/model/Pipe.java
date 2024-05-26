@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,6 +26,10 @@ public class Pipe {
 	
 	@Column(name = "temperatureflow")
 	private int temperatureflow;
+	
+	@ManyToOne
+	@JoinColumn(name = "pipeline_id", referencedColumnName = "id")
+	private Pipeline owner;
 	
 			
 
@@ -77,11 +83,15 @@ public class Pipe {
 		return (float)3.14 * getDiameter();
 	}
 	
+	public String getOwner() {                 //new
+		return owner.getPipelinecode();         //new
+	}
+	
 	public String useCoat(){
 		if (getTemperatureflow() < 80) {
 			return "anticorrosionCoating";
 		} else return "termoCoating";
 	}
-	
+	 
 	
 }

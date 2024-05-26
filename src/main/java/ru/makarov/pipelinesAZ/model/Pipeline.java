@@ -1,10 +1,13 @@
 package ru.makarov.pipelinesAZ.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,13 +26,12 @@ public class Pipeline {
 	@Column(name = "pipelinecode")
 	private String pipelinecode;
 	
+	
+	@OneToMany(mappedBy = "owner")
+	private List <Pipe> pipes;
+	
 	public Pipeline() {
 	}
-
-	
-	
-
-
 
 
 	public Pipeline(int id,String pipelinename, String pipelinecode) {
