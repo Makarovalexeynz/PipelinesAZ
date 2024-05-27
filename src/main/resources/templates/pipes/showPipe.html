@@ -24,8 +24,10 @@
 <p>Should use:</p> 
 <p th:text="${pipe.useCoat()}">VALUE</p>
 
+
 <p>Owner:</p> 
-<p th:text="${pipe.getOwner}">VALUE</p>
+
+<p th:text="${pipe.getOwner} ?: 'No pipeline'"></p>
 
 
 <a th:href="@{/pipes/{id}/edit(id=${pipe.getId()})}">Edit</a>

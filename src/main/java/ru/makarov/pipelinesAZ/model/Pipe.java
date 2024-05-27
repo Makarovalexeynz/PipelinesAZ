@@ -45,6 +45,7 @@ public class Pipe {
 		this.temperatureflow = temperatureflow;
 		
 		
+		
 	}
 
 	public int getId() {
@@ -83,14 +84,29 @@ public class Pipe {
 		return (float)3.14 * getDiameter();
 	}
 	
-	public String getOwner() {                 //new
-		return owner.getPipelinecode();         //new
-	}
 	
+	
+	public void setOwner(Pipeline owner) {  // new
+		this.owner = owner;                 // new
+	}
+
+	
+	public Pipeline getOwner() {
+		return owner;
+	}
+
+
 	public String useCoat(){
 		if (getTemperatureflow() < 80) {
 			return "anticorrosionCoating";
 		} else return "termoCoating";
+	}
+
+
+	@Override
+	public String toString() {
+		return "Pipe [id=" + id + ", diameter=" + diameter + ", length=" + length + ", temperatureflow="
+				+ temperatureflow + "]\n";
 	}
 	 
 	

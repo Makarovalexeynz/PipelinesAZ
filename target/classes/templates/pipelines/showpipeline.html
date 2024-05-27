@@ -14,6 +14,11 @@
 <p>This is a Name:</p> 
 <p th:text="${pipeline.getPipelinename()}">VALUE</p>
 
+<p>Pipes into pipelines:</p> 
+<!-- <p th:text="${pipeline.getPipes()}">VALUE</p> -->
+ 
+<p th:text="${pipeline.getPipes()} ?: 'No pipes'"></p>
+
 
 <a th:href="@{/pipelines/{id}/edit(id=${pipeline.getId()})}">Edit</a>
 

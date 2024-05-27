@@ -65,6 +65,21 @@ public class Pipeline {
 	public void setPipelinecode(String pipelinecode) {
 		this.pipelinecode = pipelinecode;
 	}
+
+	public List<Pipe> getPipes() {
+		return pipes;
+	}
+
+	public void setPipes(List<Pipe> pipes) {
+		this.pipes = pipes;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Pipeline [id=" + id + ", pipelinename=" + pipelinename + ", pipelinecode=" + pipelinecode + "]";
+	}
+	
 	
 	
 }
