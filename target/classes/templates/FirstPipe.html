@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>FirstPipe</title>
+    <meta charset="UTF-8">
+    <title>select pipelines</title>
 </head>
 <body>
-FirstPipe
+
+<form th:method="PATCH" th:action="@{/test/add}">
+    <label for="pipeline">Select pipeline:</label>
+    <select th:object="${pipeline}" th:field="*{id}" id="pipeline">
+        <option th:each="pipeline : ${pipelines}" th:value="${pipeline.getId()}"
+        th:text="${pipeline.getPipelinecode()}"></option>
+    </select>
+
+    <input type="submit" value="link" />
+</form>
+
 </body>
 </html>

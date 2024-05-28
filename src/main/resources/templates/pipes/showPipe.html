@@ -30,6 +30,18 @@
 <p th:text="${pipe.getOwner} ?: 'No pipeline'"></p>
 
 
+<form th:method="PATCH" th:action="@{/pipes/{id}/linkpipelines(id=${pipe.getId()})}">
+    <label for="pipeline">Select pipeline:</label>
+    <select th:object="${pipeline}" th:field="*{id}" id="pipeline">
+        <option th:each="pipeline : ${pipelines}" th:value="${pipeline.getId()}"
+        th:text="${pipeline.getPipelinecode()}"></option>
+    </select>
+    
+
+    <input type="submit" value="link" />
+</form>
+
+
 <a th:href="@{/pipes/{id}/edit(id=${pipe.getId()})}">Edit</a>
 
 <form th:method="DELETE" th:action="@{/pipes/{id}(id=${pipe.getId()})}">

@@ -20,6 +20,11 @@
 <p th:text="${pipeline.getPipes()} ?: 'No pipes'"></p>
 
 
+
+
+
+
+
 <a th:href="@{/pipelines/{id}/edit(id=${pipeline.getId()})}">Edit</a>
 
 <form th:method="DELETE" th:action="@{/pipelines/{id}(id=${pipeline.getId()})}">

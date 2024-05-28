@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ru.makarov.pipelinesAZ.model.Pipe;
+import ru.makarov.pipelinesAZ.model.Pipeline;
+import ru.makarov.pipelinesAZ.services.PipelinesService;
 import ru.makarov.pipelinesAZ.services.PipesService;
 
 
@@ -22,12 +24,16 @@ import ru.makarov.pipelinesAZ.services.PipesService;
 public class PipeController {
 	
 	private final PipesService pipesService;
+	private final PipelinesService pipelinesService;
 	
 
 	@Autowired
-	public PipeController(PipesService pipesService) {
+	public PipeController(PipesService pipesService, PipelinesService pipelinesService ) {
 		this.pipesService = pipesService;
+		this.pipelinesService = pipelinesService;
 	}
+	
+	
 
 	@GetMapping()
 	 public String index(Model model) {                       
@@ -36,10 +42,12 @@ public class PipeController {
     }
 	
 	  @GetMapping("/{id}")
-	    public String show(@PathVariable("id") int id, Model model) {
+	    public String show(@PathVariable("id") int id, Model model, @ModelAttribute("pipeline") Pipeline pipeline ) {
 	        model.addAttribute("pipe", pipesService.findOne(id));
+	        model.addAttribute("pipelines", pipelinesService.findAll());
 	        return "pipes/showPipe";
 	    }
+	  	
 	
 	@GetMapping("/getPipe")
 	public String getPipe(){
@@ -79,6 +87,16 @@ public class PipeController {
 		pipesService.delete(id);
 		return "redirect:/pipes";
 	}
+	
+	
+	
+	
+	@PatchMapping("/{id}/linkpipelines")
+    public String makeLink(@PathVariable("id") int id, @ModelAttribute("pipeline") Pipeline selectedPipeline) {
+		pipesService.link(id, selectedPipeline);
+
+        return "redirect:/pipes";
+    }
 	
 	
 	

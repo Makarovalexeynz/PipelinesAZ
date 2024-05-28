@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ru.makarov.pipelinesAZ.model.Pipe;
+import ru.makarov.pipelinesAZ.model.Pipeline;
 import ru.makarov.pipelinesAZ.repositories.PipesRepository;
 
 
@@ -48,5 +49,13 @@ public class PipesService {
         pipesRepository.deleteById(id);
     }
 	
+	@Transactional
+	public void link(int id, Pipeline selectedPipeline) {
+		pipesRepository.findById(id).ifPresent(
+				pipe -> {
+                    pipe.setOwner(selectedPipeline);
+				}
+		);
+	}
 
 }
