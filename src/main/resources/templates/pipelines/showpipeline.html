@@ -18,11 +18,16 @@
 <!-- <p th:text="${pipeline.getPipes()}">VALUE</p> -->
  
 <p th:text="${pipeline.getPipes()} ?: 'No pipes'"></p>
+<br/>
 
+<p>Total anticorrosion work:</p> 
+<p th:text="${pipeline.getTotalAnticorrosionWork()}">VALUE</p>
 
+<p>Total anticorrosion work(Cold):</p> 
+<p th:text="${pipeline.getTotalAnticorrosionWorkForCold()}">VALUE</p>
 
-
-
+<p>Total anticorrosion work(Hot):</p> 
+<p th:text="${pipeline.getTotalAnticorrosionWorkForHot()}">VALUE</p>
 
 
 <a th:href="@{/pipelines/{id}/edit(id=${pipeline.getId()})}">Edit</a>

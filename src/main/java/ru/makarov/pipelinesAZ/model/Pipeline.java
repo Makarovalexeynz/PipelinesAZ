@@ -78,7 +78,33 @@ public class Pipeline {
 	@Override
 	public String toString() {
 		return "Pipeline [id=" + id + ", pipelinename=" + pipelinename + ", pipelinecode=" + pipelinecode + "]";
-	}
+	};
+	
+	public float getTotalAnticorrosionWork() {
+		float sum = 0;
+		for(Pipe pipe: pipes) {
+			sum +=pipe.getSurfacearea();
+		}
+		return sum;
+	};
+	
+	public float getTotalAnticorrosionWorkForCold() {
+		float sum = 0;
+		for(Pipe pipe: pipes) {
+			if(pipe.getTemperatureflow()<80)
+			sum +=pipe.getSurfacearea();
+		}
+		return sum;
+	};
+	
+	public float getTotalAnticorrosionWorkForHot() {
+		float sum = 0;
+		for(Pipe pipe: pipes) {
+			if(pipe.getTemperatureflow()>=80)
+			sum +=pipe.getSurfacearea();
+		}
+		return sum;
+	};
 	
 	
 	
