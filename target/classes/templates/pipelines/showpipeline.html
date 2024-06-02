@@ -31,6 +31,9 @@
 
 
 <a th:href="@{/pipelines/{id}/edit(id=${pipeline.getId()})}">Edit</a>
+<br/>
+
+<a th:href = "@{/pipelines/{id}/pipes(id=${pipeline.getId()})}">Show pipes into System</a>
 
 <form th:method="DELETE" th:action="@{/pipelines/{id}(id=${pipeline.getId()})}">
     <input type="submit" value="Delete"/>

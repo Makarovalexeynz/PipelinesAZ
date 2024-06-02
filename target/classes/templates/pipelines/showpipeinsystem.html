@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>All pipes into system</title>
+</head>
+<body>
+	 <div th:each="pipe : ${pipes}">
+   	 <a th:href="@{/pipes/{id}(id=${pipe.getId()})}" 
+   	 th:text="${' pipe: diameter ='+ pipe.getDiameter()+', length = '+pipe.getLength()}">user</a>
+	</div> 
+	
+<br/>
+<hr/>
+
+<a href = "pipes/new">Add new pipe</a>	
+<br/>
+<hr/>
+<br/>
+<a href = "pipelines">Go to pipelines page</a>	
+</body>
+</html> 

@@ -33,6 +33,10 @@ public class PipesService {
         return foundPipe.orElse(null);
     }
 	
+	public List <Pipe> findAllByOwner(Pipeline pipeline){
+		return pipesRepository.findAllByOwner(pipeline);
+	}
+	
 	@Transactional
     public void save(Pipe pipe) {
         pipesRepository.save(pipe);

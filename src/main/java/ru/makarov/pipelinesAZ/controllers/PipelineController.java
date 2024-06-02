@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.makarov.pipelinesAZ.model.Pipeline;
 import ru.makarov.pipelinesAZ.services.PipelinesService;
+import ru.makarov.pipelinesAZ.services.PipesService;
 
 
 
@@ -20,10 +21,12 @@ import ru.makarov.pipelinesAZ.services.PipelinesService;
 public class PipelineController {
 	
 	private final PipelinesService pipelinesService;
+	private final PipesService pipesService;
 	
 	@Autowired
-	public PipelineController(PipelinesService pipelinesService) {
+	public PipelineController(PipelinesService pipelinesService, PipesService pipesService ) {
 		this.pipelinesService = pipelinesService;
+		this.pipesService = pipesService;
 	}
 
 	@GetMapping()
@@ -35,7 +38,6 @@ public class PipelineController {
 	  @GetMapping("/{id}")
 	    public String show(@PathVariable("id") int id, Model model) {
 	        model.addAttribute("pipeline", pipelinesService.findOne(id));
-//	        model.addAttribute("pipe",pipesService.getPipesByPipelinesId(id) );
 	        return "pipelines/showpipeline";
 	    }
 	  
@@ -70,5 +72,11 @@ public class PipelineController {
 			pipelinesService.delete(id);
 			return "redirect:/pipelines";
 		}
+		
+		@GetMapping("/{id}/pipes")                         // возвращает трубы входящие в систему трубопровода
+		 public String showpipes(@PathVariable("id") int id,  Model model, @ModelAttribute("pipeline") Pipeline pipeline) {                       
+	       model.addAttribute("pipes", pipesService.findAllByOwner(pipeline));
+	       return "pipelines/showpipeinsystem";
+	   }
 
 }
