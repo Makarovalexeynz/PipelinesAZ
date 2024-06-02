@@ -8,6 +8,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+
 
 @Entity
 @Table(name = "Pipe")
@@ -19,9 +22,11 @@ public class Pipe {
 	private int id;
 	
 	@Column(name = "diameter")
+	@Min(value = 0, message= "You must enter greater then 0 value")
 	private float diameter;
 	
 	@Column(name = "length")
+	@Min(value = 0, message= "You must enter greater then 0 value")
 	private float length;
 	
 	@Column(name = "temperatureflow")
